@@ -13,7 +13,7 @@ export class BooksComponent implements OnInit {
   ngOnInit(){
     this.Apollo.watchQuery({query:get_books}).valueChanges.subscribe((res:any)=>{
       console.log(res.data.books)
-      this.allBooks = res.data.books
+      this.allBooks = res.data.books 
     })
   }
 }
