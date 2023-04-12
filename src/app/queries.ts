@@ -10,7 +10,25 @@ const get_books = gql`
     }
   }
 `
-export {get_books}
+
+const add_book = gql`
+mutation ($name: String! , $author: String! , $NumOfPages: String!) {
+  AddBook(name: $name , author:$author , NumOfPages:$NumOfPages) {
+    name
+    author
+    NumOfPages
+  }
+}
+`;
+
+const delete_book = gql`
+mutation ($id: String! ) {
+  deleteBook(id: $id ) {
+    id
+  }
+}
+`;
+export {get_books , add_book , delete_book}
 
 
 /*

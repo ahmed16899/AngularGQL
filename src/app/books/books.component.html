@@ -1,3 +1,22 @@
+<form (ngSubmit)="submitForm(addBookForm)" [formGroup]="addBookForm" class="w-50 mx-auto">
+   
+  <label class="mt-2">Name</label>
+  <input formControlName="name" class="form-control" type="text">
+
+  
+  <label class="mt-2">author</label>
+  <input formControlName="author" class="form-control" type="text" >
+
+
+
+  <label class="mt-2">NumOfPages</label>
+  <input formControlName="NumOfPages" class="form-control" type="text">
+ 
+
+  
+  <button class="btn btn-success mt-3" [disabled]="addBookForm.invalid">Add</button>
+  </form>
+
 <table class="table w-50 mx-auto my-5">
     <thead>
       <tr>
@@ -5,6 +24,7 @@
         <th scope="col">Name</th>
         <th scope="col">Author</th>
         <th scope="col">Number of pages</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -13,6 +33,7 @@
         <td>{{book.name}}</td>
         <td>{{book.author}}</td>
         <td>{{book.NumOfPages}}</td>
+        <td><button class="btn btn btn-danger" (click)="deleteData(book.id)">Delete</button></td>
         <!-- <td>{{book.salary}}</td>
         <td>{{book.address}}</td>
         <td><a class="btn btn-primary" [routerLink]="['update',book.id]">Update</a></td>
